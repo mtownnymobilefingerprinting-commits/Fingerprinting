@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="none">
+  <defs>
+    <linearGradient id="a" x1="320" y1="0" x2="320" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </linearGradient>
+    <linearGradient id="b" x1="320" y1="0" x2="320" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="512" rx="72" fill="url(#a)" />
+  <path d="M160 176c0-88 72-160 160-160s160 72 160 160c0 88-72 160-160 160S160 264 160 176Z" fill="#fff" fill-opacity="0.15" />
+  <path d="M312 128c8-20 32-20 40 0 0 0 6 32-4 64s-28 32-28 32-20 0-28-32 0-64 0-64Z" fill="#fff" opacity="0.8" />
+  <path d="M320 176c0 12 10 22 22 22s22-10 22-22-10-22-22-22-22 10-22 22Z" fill="#fff" />
+  <path fill="#fff" d="M320 216c-12.3 0-22.4 8.7-24.3 20.3-.1.7 0 1.4 0 2.1 0 .5 0 1 .1 1.5 3.5 44.5 41.4 70.7 41.4 70.7s37.9-26.2 41.4-70.7c0-.5.1-1 .1-1.5 0-.7 0-1.4 0-2.1-1.9-11.6-12-20.3-24.3-20.3Z" />
+  <path d="M208 304c-32 32-40 88-40 88h304s-8-56-40-88c-14-14-40-20-72-20s-58 6-72 20c-14-14-40-20-72-20s-58 6-72 20Z" fill="#fff" opacity="0.28" />
+  <path d="M176 328c0-22 18-40 40-40h208c22 0 40 18 40 40v72H176v-72Z" fill="#fff" opacity="0.45" />
+  <path d="M256 376c0-30 24-54 54-54s54 24 54 54-24 54-54 54-54-24-54-54Z" fill="#fff" opacity="0.85" />
+</svg>

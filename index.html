@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="On-site mobile fingerprinting for businesses in Middletown NY & Orange County. Live Scan, ink fingerprinting, and bulk employee screening — we come to you." />
+    <meta name="keywords" content="mobile fingerprinting Middletown NY, on-site fingerprinting services Orange County NY, corporate fingerprinting services Hudson Valley, Live Scan fingerprinting for businesses, employee background check fingerprinting, pre-employment screening fingerprinting, bulk/group employee fingerprinting, HR compliance fingerprinting services, fingerprinting for law firms Middletown NY, fingerprinting for staffing agencies, notary and fingerprinting services Middletown NY, ink and roll fingerprinting (FD-258 cards), same-day mobile fingerprinting Orange County NY" />
+    <title>Mobile Fingerprinting Middletown NY | On-Site Corporate & Live Scan Services</title>
+    <style>
+      :root {
+        --navy: #0f2d3d;
+        --teal: #1d7a7a;
+        --sky: #eaf7f7;
+        --text: #20313d;
+        --muted: #5c6b75;
+        --border: #dfe9ea;
+      }
 
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--text);
+        line-height: 1.7;
+        background: #fff;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #0f2d3d 0%, #1d7a7a 100%);
+        color: #fff;
+        padding: 3rem 0 4rem;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: rgba(255,255,255,0.9);
+        font-size: 0.95rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.16);
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      h1, h2, h3 {
+        line-height: 1.2;
+        margin-top: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+      }
+
+      .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.92); }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        background: #fff;
+        color: var(--navy);
+      }
+      .btn-secondary {
+        border: 1px solid rgba(255,255,255,0.35);
+        color: #fff;
+      }
+
+      .hero-card {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        backdrop-filter: blur(8px);
+      }
+
+      .section { padding: 4rem 0; }
+      .section-alt { background: var(--sky); }
+      .section-title {
+        font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+        margin-bottom: 1rem;
+      }
+
+      .section-intro {
+        max-width: 760px;
+        color: var(--muted);
+        margin-bottom: 1.75rem;
+      }
+
+      .grid-2, .grid-3, .steps {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+      .card, .service-card, .faq-item {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        box-shadow: 0 10px 30px rgba(15, 45, 61, 0.05);
+      }
+
+      .service-card h3, .card h3, .faq-item h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-bottom: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .cta-banner {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+        color: #fff;
+        border-radius: 1.25rem;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .faq-item { margin-bottom: 1rem; }
+      .faq-item summary { cursor: pointer; font-weight: 700; }
+      .faq-item p { margin: 0.7rem 0 0; color: var(--muted); }
+
+      .testimonial {
+        font-style: italic;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+      }
+
+      footer {
+        background: var(--navy);
+        color: rgba(255,255,255,0.9);
+        padding: 2rem 0;
+      }
+
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .grid-3, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 640px) {
+        .grid-2, .grid-3, .steps { grid-template-columns: 1fr; }
+        .nav { flex-direction: column; align-items: flex-start; }
+        .hero { padding-top: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <nav class="nav" aria-label="Main navigation">
+          <div class="brand">Middletown NY Mobile Fingerprinting</div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">On-site fingerprinting services for businesses</div>
+            <h1>Mobile Fingerprinting for Businesses Across Middletown and Orange County, NY</h1>
+            <p>
+              Certified, professional fingerprinting delivered directly to your office, worksite, or event — no lost productivity, no off-site trips, and no scheduling headaches for your HR team.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Book Corporate Fingerprinting →</a>
+              <a class="btn btn-secondary" href="#contact">Get a Quote for Your Team</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <p class="tag">Short bio</p>
+            <p>
+              Mobile fingerprinting for businesses in Middletown & Orange County, NY. Live Scan, ink prints & bulk employee screening — on-site, on your schedule.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">Mobile Fingerprinting Services, Delivered to Your Business</h2>
+          <p class="section-intro">
+            Middletown NY Mobile Fingerprinting brings certified, professional fingerprinting directly to your office, worksite, or event — no van trips to a satellite location, no lost productivity, and no scheduling headaches for your HR team.
+          </p>
+          <div class="grid-2">
+            <div class="card">
+              <p>
+                We specialize in on-site fingerprinting for businesses, law firms, healthcare facilities, schools, financial institutions, and staffing agencies throughout Middletown and greater Orange County, NY. Whether you need a single new hire fingerprinted for a background check or an entire department processed in one sitting, we build our schedule around your operations — not the other way around.
+              </p>
+            </div>
+            <div class="card">
+              <p>
+                Our technicians are trained in both electronic Live Scan and traditional ink-and-roll fingerprinting (FD-258 cards), so we can meet whatever format your licensing board, employer, or regulatory agency requires. If your business runs on compliance deadlines, we run on them too.
+              </p>
+              <p><strong>Ideal for employee background check fingerprinting, pre-employment screening fingerprinting, and HR compliance fingerprinting services.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Fingerprinting Services Built for Business Compliance</h2>
+          <p class="section-intro">
+            Flexible service options for employers, staffing firms, law offices, schools, healthcare providers, and licensing-dependent organizations.
+          </p>
+          <div class="grid-3">
+            <article class="service-card">
+              <div class="tag">Live Scan</div>
+              <h3>Fast, digital fingerprint capture</h3>
+              <p>Ideal for Live Scan fingerprinting for businesses that need quick turnaround on pre-employment screening, licensing, or regulatory clearance.</p>
+            </article>
+            <article class="service-card">
+              <div class="tag">Ink & Roll</div>
+              <h3>Traditional FD-258 cards</h3>
+              <p>Ink and roll fingerprinting (FD-258 cards) for agencies, licensing boards, and institutions that require hard-copy submissions.</p>
+            </article>
+            <article class="service-card">
+              <div class="tag">Bulk Group</div>
+              <h3>On-site employee events</h3>
+              <p>Bulk and group employee fingerprinting for new hires, seasonal staff, or entire departments in one efficient visit.</p>
+            </article>
+            <article class="service-card">
+              <div class="tag">Background Checks</div>
+              <h3>Pre-employment support</h3>
+              <p>Fingerprinting for pre-employment screening, HR compliance programs, and third-party background check submissions.</p>
+            </article>
+            <article class="service-card">
+              <div class="tag">Licensing</div>
+              <h3>Professional licensing support</h3>
+              <p>Support for fingerprinting required by state licensing boards in healthcare, real estate, financial services, education, and childcare.</p>
+            </article>
+            <article class="service-card">
+              <div class="tag">Notary</div>
+              <h3>Bundle with notary services</h3>
+              <p>Notary and fingerprinting services Middletown NY for businesses that need both in one visit.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Trusted by Middletown & Orange County Businesses</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Law Firms & Legal Offices</h3>
+              <p>Fingerprinting for law firms Middletown NY, bar admission applicants, staff, and clients needing licensing-related background checks.</p>
+            </div>
+            <div class="card">
+              <h3>Healthcare Facilities</h3>
+              <p>On-site fingerprinting for nurses, home health aides, and clinical staff who need Department of Health clearance and licensing background checks.</p>
+            </div>
+            <div class="card">
+              <h3>Schools, Daycares & Childcare Providers</h3>
+              <p>Fingerprinting for staff, contractors, and volunteers to meet state education and childcare licensing requirements.</p>
+            </div>
+            <div class="card">
+              <h3>Financial Institutions & Insurance Firms</h3>
+              <p>Support for fingerprinting tied to FINRA registration, banking compliance, and insurance licensing.</p>
+            </div>
+            <div class="card">
+              <h3>Staffing Agencies & HR Departments</h3>
+              <p>Fingerprinting for staffing agencies and corporate HR teams, scheduled around onboarding timelines to reduce time-to-start.</p>
+            </div>
+            <div class="card">
+              <h3>Real Estate Offices</h3>
+              <p>Fingerprinting for real estate license applications and renewals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Proudly Serving Middletown & Orange County, NY</h2>
+          <p class="section-intro">
+            We provide mobile, on-site fingerprinting throughout Middletown, Goshen, Monroe, Newburgh, Warwick, Chester, Wallkill, and surrounding Orange County communities. Have a location outside this area? Ask us about extended service — we regularly travel to meet businesses across the Hudson Valley for corporate fingerprinting services.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Why Businesses Choose Middletown NY Mobile Fingerprinting</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>We come to you.</h3>
+              <p>No sending employees off-site or losing hours of productivity to a fingerprinting appointment across town.</p>
+            </div>
+            <div class="card">
+              <h3>Built for HR and compliance teams.</h3>
+              <p>Flexible scheduling, bulk appointment blocks, and paperwork formatted to your requirements.</p>
+            </div>
+            <div class="card">
+              <h3>Fast turnaround.</h3>
+              <p>Live Scan submissions are processed electronically for quicker results on background checks and licensing.</p>
+            </div>
+            <div class="card">
+              <h3>Flexible formats.</h3>
+              <p>Both Live Scan and ink fingerprinting are available, depending on what your agency or licensing board requires.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Booking Corporate Fingerprinting Is Simple</h2>
+          <div class="steps">
+            <div class="card">
+              <div class="tag">Step 1</div>
+              <h3>Reach Out</h3>
+              <p>Tell us your business type, number of employees needing fingerprinting, and required format (Live Scan or ink).</p>
+            </div>
+            <div class="card">
+              <div class="tag">Step 2</div>
+              <h3>We Confirm Requirements</h3>
+              <p>We confirm the correct forms, ORI numbers, or agency codes needed for your industry so submissions are accepted the first time.</p>
+            </div>
+            <div class="card">
+              <div class="tag">Step 3</div>
+              <h3>We Come to You</h3>
+              <p>Our technician arrives on-site at your office, facility, or event with all necessary equipment.</p>
+            </div>
+            <div class="card">
+              <div class="tag">Step 4</div>
+              <h3>Fast, Compliant Results</h3>
+              <p>Fingerprints are submitted or provided in the required format, ready for your background check provider or licensing agency.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-banner">
+            <h2>Planning a New-Hire Class or Team-Wide Compliance Day?</h2>
+            <p>Book a group fingerprinting session and get your entire team — new hires, seasonal staff, or an entire department — processed in one on-site visit.</p>
+            <div class="cta-row" style="justify-content:center; margin-top:1.2rem;">
+              <a class="btn btn-primary" href="#contact">Request a Group Fingerprinting Quote</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <details open>
+              <summary>Do you travel to our office or facility?</summary>
+              <p>Yes. Mobile, on-site service is our specialty — we bring all equipment to your location anywhere in Middletown and Orange County, NY.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>Do you offer both Live Scan and ink fingerprinting?</summary>
+              <p>Yes. We can accommodate whichever format your licensing board, employer, or background check provider requires.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>Can you fingerprint an entire department or new-hire class at once?</summary>
+              <p>Yes. We regularly run bulk/group sessions for staffing agencies, healthcare employers, and schools. Contact us to schedule a block appointment.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>How fast are results available?</summary>
+              <p>Live Scan submissions are typically processed faster than mailed ink cards, though turnaround ultimately depends on the receiving agency.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>What should employees bring to their appointment?</summary>
+              <p>A valid government-issued photo ID and any required agency paperwork (ORI number, applicant forms, etc.), which we confirm with you ahead of time.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>Do you work with staffing agencies and HR departments directly?</summary>
+              <p>Yes — we can set up standing service agreements for recurring hiring cycles.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">What Local Businesses Are Saying</h2>
+          <div class="grid-2">
+            <div class="card">
+              <p class="testimonial">“The on-site appointment saved our team hours and made our new-hire onboarding process much easier.”</p>
+              <p><strong>[Client testimonial placeholder — add a real review once available]</strong></p>
+            </div>
+            <div class="card">
+              <p class="testimonial">“We scheduled a group session for our department and everything ran smoothly from start to finish.”</p>
+              <p><strong>[Client testimonial placeholder — add a real review once available]</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h2 style="margin-bottom:0.5rem;">Schedule On-Site Fingerprinting for Your Business</h2>
+            <p>Serving Middletown and Orange County, NY businesses with fast, professional mobile fingerprinting — Live Scan, ink cards, and bulk employee screening.</p>
+          </div>
+          <div>
+            <p><strong>Phone:</strong> (888) 219-4681</p>
+            <p><strong>Email:</strong> mtownnymobilefingerprinting@gmail.com</p>
+            <p><strong>Service Area:</strong> Middletown, NY & Orange County</p>
+            <p><strong>Hours:</strong> Mon-Fri 9-5</p>
+            <div class="cta-row" style="margin-top:1rem;">
+              <a class="btn btn-primary" href="mailto:mtownnymobilefingerprinting@gmail.com">Book Your Appointment</a>
+              <a class="btn btn-secondary" href="tel:+18882194681">Request a Corporate Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
