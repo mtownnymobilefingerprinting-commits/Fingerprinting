@@ -30,7 +30,7 @@ export const services: ServiceConfig[] = [
     description:
       "Full-service FD-258 fingerprint card processing for employers, licensing, and government record checks.",
     idealCustomer: "HR teams and regulated organizations that require FD-258 fingerprint cards.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "FD-258 Fingerprint Cards Middletown NY",
     seoDescription:
       "Professional FD-258 fingerprint card services for Orange County businesses and government contractors.",
@@ -43,7 +43,7 @@ export const services: ServiceConfig[] = [
     description:
       "Reliable FBI fingerprint card service for background checks, licensing, and federal requirements.",
     idealCustomer: "Law firms, government contractors, and healthcare employers needing FBI clearance.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "FBI Fingerprint Cards Middletown NY",
     seoDescription:
       "Trusted FBI fingerprint card service for businesses and professionals across the Hudson Valley.",
@@ -56,7 +56,7 @@ export const services: ServiceConfig[] = [
     description:
       "Fingerprinting support for immigration petitions, naturalization and visa-related background checks.",
     idealCustomer: "Immigration law firms, paralegals, and families preparing federal filings.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Immigration Fingerprinting Middletown NY",
     seoDescription:
       "Professional immigration fingerprinting services for applicants in Middleton, Orange County, and the Hudson Valley.",
@@ -69,7 +69,7 @@ export const services: ServiceConfig[] = [
     description:
       "Confidential fingerprinting for adoption home studies, guardianship filings, and family court requirements.",
     idealCustomer: "Adoption agencies, families, and attorneys arranging court-ready fingerprinting.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Adoption Fingerprinting Middletown NY",
     seoDescription:
       "Mobile adoption fingerprinting that comes to you, serving Orange County and Hudson Valley families.",
@@ -82,7 +82,7 @@ export const services: ServiceConfig[] = [
     description:
       "Personal record review and fingerprinting consultation for applicants and record clearance requests.",
     idealCustomer: "Individuals preparing applications that require a fingerprint-based record review.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Personal Record Review Middletown NY",
     seoDescription:
       "Personal record review services with fingerprinting guidance for local individuals and professionals.",
@@ -95,7 +95,7 @@ export const services: ServiceConfig[] = [
     description:
       "Complete employment fingerprinting for hiring, onboarding, and workplace compliance.",
     idealCustomer: "HR managers, staffing agencies, and business owners hiring new employees.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Employment Fingerprinting Middletown NY",
     seoDescription:
       "Mobile employment fingerprinting for businesses, staffing firms, and recruiters throughout Orange County.",
@@ -108,7 +108,7 @@ export const services: ServiceConfig[] = [
     description:
       "Mobile fingerprinting for nursing license applications, renewals, and healthcare workforce clearance.",
     idealCustomer: "Healthcare employers, nursing schools, and licensed professionals in the Hudson Valley.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Nursing License Fingerprinting Middletown NY",
     seoDescription:
       "Professional fingerprinting for nursing license applications, renewals, and credentialing.",
@@ -121,7 +121,7 @@ export const services: ServiceConfig[] = [
     description:
       "Fingerprinting services designed for teacher certification, school staff background checks, and education licensing.",
     idealCustomer: "School administrators, teachers, and childcare providers in Orange County and Sullivan County.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Teacher Certification Fingerprinting Middletown NY",
     seoDescription:
       "On-site fingerprinting for teacher certification, daycare staff, and school employment in the Hudson Valley.",
@@ -134,7 +134,7 @@ export const services: ServiceConfig[] = [
     description:
       "Reliable fingerprinting for security guard licensing, renewals, and Department of State applications.",
     idealCustomer: "Security firms, training providers, and licensed guards requiring timely fingerprint capture.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Security Guard Fingerprinting Middletown NY",
     seoDescription:
       "Fast, mobile fingerprinting for security guard license requirements across Orange County and the Hudson Valley.",
@@ -147,7 +147,7 @@ export const services: ServiceConfig[] = [
     description:
       "Mobile fingerprinting support for real estate license applications, broker registration, and renewals.",
     idealCustomer: "Real estate firms, brokers, and agents preparing license filings in New York.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Real Estate License Fingerprinting Middletown NY",
     seoDescription:
       "Convenient fingerprinting for real estate license applicants in Middletown and surrounding communities.",
@@ -160,7 +160,7 @@ export const services: ServiceConfig[] = [
     description:
       "Fingerprinting services for FINRA registration, securities licensing, and financial services employer onboarding.",
     idealCustomer: "Financial institutions, broker-dealers, and compliance teams in the Hudson Valley.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "FINRA Fingerprinting Middletown NY",
     seoDescription:
       "Trusted fingerprinting for FINRA registration and financial services compliance in Orange County.",
@@ -173,7 +173,7 @@ export const services: ServiceConfig[] = [
     description:
       "On-site corporate fingerprinting for teams, HR departments, and staffing partners.",
     idealCustomer: "Corporate HR, staffing agencies, and legal departments needing group fingerprinting solutions.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Corporate Fingerprinting Middletown NY",
     seoDescription:
       "Corporate mobile fingerprinting for businesses and staffing agencies throughout Orange County and Sullivan County.",
@@ -186,7 +186,7 @@ export const services: ServiceConfig[] = [
     description:
       "Mobile fingerprinting at your office for hiring, compliance, and employee onboarding.",
     idealCustomer: "Business owners and facilities that need fingerprinting for staff, contractors, and teams.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "On-Site Business Fingerprinting Middletown NY",
     seoDescription:
       "On-site fingerprinting for businesses across Middletown, Orange County, and the Hudson Valley.",
@@ -199,7 +199,7 @@ export const services: ServiceConfig[] = [
     description:
       "Group fingerprinting for teams, staffing events, and multi-employee appointments.",
     idealCustomer: "Staffing agencies, businesses, and organizations scheduling fingerprinting for multiple employees.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Group Fingerprinting Middletown NY",
     seoDescription:
       "Flexible group fingerprinting solutions for businesses, schools, and healthcare teams in the Hudson Valley.",
@@ -212,7 +212,7 @@ export const services: ServiceConfig[] = [
     description:
       "Staffing agency fingerprinting for temporary hires, contract workers, and client placements.",
     idealCustomer: "Staffing agencies and recruiters serving corporate, healthcare, and education clients.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Staffing Agency Fingerprinting Middletown NY",
     seoDescription:
       "Mobile fingerprinting solutions for staffing agencies and recruiting teams in Orange County.",
@@ -225,7 +225,7 @@ export const services: ServiceConfig[] = [
     description:
       "Mobile fingerprinting for healthcare workers, credentialing, and facility compliance.",
     idealCustomer: "Healthcare organizations, clinics, and staffing partners needing on-site fingerprinting.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Healthcare Facility Fingerprinting Middletown NY",
     seoDescription:
       "On-site fingerprinting for healthcare organizations, hospitals, and credentialing teams.",
@@ -238,7 +238,7 @@ export const services: ServiceConfig[] = [
     description:
       "Mobile fingerprinting for government contractors and cleared personnel requiring secure compliance.",
     idealCustomer: "Government contractors, prime vendors, and security-cleared teams in the Hudson Valley.",
-    price: "Contact for pricing",
+    price: "$125 per person within 20 miles of Middletown, NY",
     seoTitle: "Government Contractor Fingerprinting Middletown NY",
     seoDescription:
       "Reliable fingerprinting for government contractors, facility clearance, and contract compliance.",

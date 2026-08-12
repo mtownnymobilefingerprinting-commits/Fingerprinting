@@ -229,25 +229,6 @@ export const serviceAreaPages = [
   }
 ];
 
-export const commitments = [
-  {
-    title: "Mobile service where you need it",
-    description: "We bring professional fingerprinting to your office, event, or worksite across Middletown and the Hudson Valley."
-  },
-  {
-    title: "Fast scheduling for teams",
-    description: "Book same-day and group appointments for employees, applicants, and contractors without disrupting business operations."
-  },
-  {
-    title: "Secure, compliant processing",
-    description: "We handle FD-258 and FBI fingerprint cards with attention to privacy, accuracy, and regulatory requirements."
-  },
-  {
-    title: "Trusted by local businesses",
-    description: "Healthcare, education, legal, staffing, and government clients rely on our reliable, customer-first fingerprinting service."
-  }
-];
-
 export const faqs = [
   {
     question: "Do you travel to our office?",

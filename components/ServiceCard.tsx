@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { calendlyLinks } from "../config/appointments";
 import { ServicePayButton } from "./ServicePayButton";
+import { BookAppointmentButton } from "./BookAppointmentButton";
 import type { ServiceConfig } from "../config/services";
 
 export function ServiceCard({ service }: { service: ServiceConfig }) {
@@ -30,14 +31,7 @@ export function ServiceCard({ service }: { service: ServiceConfig }) {
         </div>
       </div>
       <div className="mt-6 flex flex-col gap-3">
-        <a
-          href={calendlyUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-800"
-        >
-          Book Appointment
-        </a>
+        <BookAppointmentButton url={calendlyUrl} />
         <ServicePayButton service={service} />
         <a
           href={`/services/${service.id}`}

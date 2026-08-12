@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const stripeClient = new Stripe(stripeSecretKey, { apiVersion: "2022-11-15" });
+  const stripeClient = new Stripe(stripeSecretKey, { apiVersion: "2026-07-29.dahlia" });
   const body = await request.json();
   const origin = new URL(request.url).origin;
 
@@ -97,7 +97,8 @@ export async function POST(request: Request) {
     const session = await stripeClient.checkout.sessions.create(sessionParams);
     return NextResponse.json({ url: session.url });
   } catch (error) {
-    const message = (error as Stripe.StripeError).message || "Unable to create checkout session.";
+    const stripeError = error as Stripe.StripeRawError;
+    const message = stripeError?.message || "Unable to create checkout session.";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

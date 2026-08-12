@@ -3,6 +3,7 @@ import { calendlyLinks } from "../../../config/appointments";
 import { Navigation } from "../../../components/Navigation";
 import { Footer } from "../../../components/Footer";
 import { ServicePayButton } from "../../../components/ServicePayButton";
+import { BookAppointmentButton } from "../../../components/BookAppointmentButton";
 import { generatePageMetadata } from "../../../lib/seo";
 import { siteConfig } from "../../../config/site";
 
@@ -71,14 +72,7 @@ export default function ServiceDetailPage({ params }: Props) {
               </div>
             </div>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={calendlyUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-800"
-              >
-                Book Appointment
-              </a>
+              <BookAppointmentButton url={calendlyUrl} className="inline-flex justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-800" />
               <ServicePayButton service={service} className="inline-flex justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-300" />
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">

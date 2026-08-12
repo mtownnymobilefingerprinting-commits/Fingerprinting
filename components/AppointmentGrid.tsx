@@ -2,6 +2,7 @@
 
 import { appointmentCategories } from "../config/content";
 import { calendlyLinks } from "../config/appointments";
+import { BookAppointmentButton } from "./BookAppointmentButton";
 
 export function AppointmentGrid() {
   return (
@@ -18,14 +19,7 @@ export function AppointmentGrid() {
                     <p className="mt-2 text-sm leading-6 text-slate-600">{item.highlight}</p>
                   </div>
                 </div>
-                <a
-                  href={calendlyLinks[item.id as keyof typeof calendlyLinks]}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-800"
-                >
-                  Book Appointment
-                </a>
+                <BookAppointmentButton url={calendlyLinks[item.id as keyof typeof calendlyLinks]} className="mt-6 inline-flex w-full justify-center" />
               </div>
             ))}
           </div>
