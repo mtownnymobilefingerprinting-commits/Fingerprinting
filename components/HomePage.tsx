@@ -17,12 +17,41 @@ export default function HomePage() {
       <Navigation />
       
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* HERO SECTION */}
-        <section className="grid gap-12 lg:grid-cols-12 lg:items-center">
-          
-          {/* Left Column - Main Copy & CTAs */}
-          <div className="space-y-8 lg:col-span-7">
-            <div className="space-y-4">
+       {/* HERO SECTION */}
+<section className="grid gap-12 lg:grid-cols-12 lg:items-center">
+
+  {/* Left Column - Main Copy & CTAs */}
+  <div className="space-y-8 lg:col-span-7">
+
+    <Image
+      src="/images/logo12.jpg"
+      alt="Middletown NY Mobile Fingerprinting"
+      width={500}
+      height={180}
+      priority
+      className="h-auto w-full max-w-md object-contain"
+    />
+
+    <div className="space-y-4">
+      <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-800">
+        <span className="h-2 w-2 rounded-full bg-blue-600"></span>
+        Mobile Fingerprinting
+      </div>
+
+      <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+        Mobile Fingerprinting. <br className="hidden sm:inline" />
+        <span className="text-blue-900">We Come to You.</span>
+      </h1>
+
+      <p className="max-w-2xl text-lg text-slate-600">
+        Professional mobile ink fingerprinting, FD-258 fingerprint cards,
+        employment fingerprinting, and group services for businesses and
+        professionals throughout Middletown, Orange County, Sullivan County,
+        and the Hudson Valley.
+      </p>
+    </div>
+
+  <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-800">
                 <span className="h-2 w-2 rounded-full bg-blue-600"></span>
                 Mobile Fingerprinting
