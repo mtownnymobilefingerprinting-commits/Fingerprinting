@@ -1,30 +1,34 @@
 "use client";
 
-import { useState } from "react";
-import { CalendlyModal } from "./CalendlyModal";
+import { useRouter } from "next/navigation";
 
 type BookAppointmentButtonProps = {
-  url: string;
+  serviceId: string;
   label?: string;
   className?: string;
 };
 
-export function BookAppointmentButton({ url, label = "Book Appointment", className }: BookAppointmentButtonProps) {
-  const [open, setOpen] = useState(false);
+export function BookAppointmentButton({
+  serviceId,
+  label = "Book Appointment",
+  className,
+}: BookAppointmentButtonProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/pay?service=${encodeURIComponent(serviceId)}`);
+  };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className={
-          className ||
-          "inline-flex items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-800"
-        }
-      >
-        {label}
-      </button>
-      <CalendlyModal url={url} open={open} onClose={() => setOpen(false)} />
-    </>
+    <button
+      type="button"
+      onClick={handleClick}
+      className={
+        className ||
+        "inline-flex items-center justify-center rounded-xl bg-blue-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800 active:bg-blue-900"
+      }
+    >
+      {label}
+    </button>
   );
-}
+} 

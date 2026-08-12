@@ -1,4 +1,5 @@
-export const calendlyBase = "https://calendly.com/mtownnymobilefingerprinting";
+export const calendlyBase =
+  "https://calendly.com/mtownnymobilefingerprinting";
 
 export const calendlyLinks = {
   mobileInk: calendlyBase,
@@ -18,9 +19,8 @@ export const calendlyLinks = {
   group: calendlyBase,
   staffingAgency: calendlyBase,
   healthcare: calendlyBase,
-  governmentContractor: calendlyBase
+  governmentContractor: calendlyBase,
 };
-
 // You can replace each service URL with the specific Calendly event type.
 // Example:
 // mobileInk: "https://calendly.com/mtownnymobilefingerprinting/mobile-ink-fingerprinting"
