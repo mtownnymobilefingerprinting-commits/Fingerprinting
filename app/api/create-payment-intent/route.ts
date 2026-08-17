@@ -2,11 +2,15 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { calculateTotalPrice } from "@/lib/pricing";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-07-29.dahlia" as any,
-});
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
+  // Safe initialization inside the handler avoids top-level evaluation during build
+  const secretKey = process.env.STRIPE_SECRET_KEY || "dummy_key_for_build";
+  const stripe = new Stripe(secretKey, {
+    apiVersion: "2026-07-29.dahlia" as any,
+  });
+
   try {
     const { name, phone, address, destLat, destLng, basePrice = 125 } = await req.json();
 
@@ -37,4 +41,4 @@ export async function POST(req: Request) {
     console.error("Stripe Payment Intent Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-} 
+}
