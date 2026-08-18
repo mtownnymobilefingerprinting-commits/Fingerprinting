@@ -145,7 +145,18 @@ function PayForm() {
         }),
       });
 
+      // Safely check if server returned JSON before parsing
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const rawText = await response.text();
+        console.error("Non-JSON API response received:", rawText);
+        throw new Error(
+          "Server configuration error. Please ensure Vercel finished deploying and your API route is active."
+        );
+      }
+
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.error || "Unable to create payment intent.");
       }
