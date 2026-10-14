@@ -1,15 +1,23 @@
 import { faqs } from "../../config/content";
 import { Navigation } from "../../components/Navigation";
 import { Footer } from "../../components/Footer";
+import { pageMetadata } from "../../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "FAQ",
+  description:
+    "Answers about paying and scheduling, ink FD-258 fingerprinting (no Live Scan), and our Hudson Valley service area.",
+  path: "/faq",
+});
 
 export default function FAQPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
-      <main className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+      <main id="main" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-700">FAQ</p>
-          <h1 className="text-4xl font-semibold text-slate-950">Frequently asked questions</h1>
+          <h1 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Frequently asked questions</h1>
           <p className="max-w-3xl text-lg leading-8 text-slate-600">
             Clear answers for appointment scheduling, mobile service, payment, and local coverage.
           </p>

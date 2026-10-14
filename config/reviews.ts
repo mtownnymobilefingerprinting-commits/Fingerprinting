@@ -1,4 +1,14 @@
-export const reviews = [
+export type Review = {
+  name: string;
+  rating: number;
+  date: string;
+  quote: string;
+  verified: boolean;
+  /** OWNER REVIEW NEEDED: text reads like the business's reply, not the customer's review. Hidden until confirmed. */
+  needsOwnerReview?: boolean;
+};
+
+export const reviews: Review[] = [
   {
     name: "Carlos Eduardo Auseda",
     rating: 5,
@@ -25,7 +35,8 @@ export const reviews = [
     rating: 5,
     date: "Jul 18, 2023",
     quote: "Thank you for trusting Middletown NY Mobile Fingerprinting with your ink fingerprints.",
-    verified: true
+    verified: true,
+    needsOwnerReview: true
   },
   {
     name: "Rupa Sharma",
@@ -46,6 +57,7 @@ export const reviews = [
     rating: 5,
     date: "Apr 7, 2023",
     quote: "Thanks for supporting our mobile ink fingerprinting business.",
-    verified: true
+    verified: true,
+    needsOwnerReview: true
   }
 ];

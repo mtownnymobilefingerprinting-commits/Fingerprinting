@@ -2,15 +2,23 @@ import Link from "next/link";
 import { industryPages } from "../../config/content";
 import { Navigation } from "../../components/Navigation";
 import { Footer } from "../../components/Footer";
+import { pageMetadata } from "../../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Industries",
+  description:
+    "Mobile fingerprinting for healthcare, schools, law firms, staffing agencies, government contractors, and financial institutions.",
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
-      <main className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+      <main id="main" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-700">Industries</p>
-          <h1 className="text-4xl font-semibold text-slate-950">Industry-specific mobile fingerprinting for businesses.</h1>
+          <h1 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Industry-specific mobile fingerprinting for businesses.</h1>
           <p className="max-w-3xl text-lg leading-8 text-slate-600">
             Learn how mobile fingerprinting supports healthcare, education, law firms, staffing agencies, government contractors, and more.
           </p>

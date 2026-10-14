@@ -17,15 +17,8 @@ const industries = [
   "Other"
 ];
 
-const fingerprintTypes = [
-  "Mobile Ink Fingerprinting",
-  "FD-258 Fingerprint Cards",
-  "FBI Fingerprint Cards",
-  "Immigration Fingerprinting",
-  "Adoption Fingerprinting",
-  "Employment Fingerprinting",
-  "Corporate Fingerprinting"
-];
+const inputClass =
+  "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 focus:border-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-950/30 aria-[invalid=true]:border-red-700";
 
 const quoteSchema = z.object({
   companyName: z.string().optional(),
@@ -35,7 +28,6 @@ const quoteSchema = z.object({
   industry: z.string().min(2, "Industry is required"),
   employees: z.string().optional(),
   serviceNeeded: z.string().min(2, "Service needed is required"),
-  fingerprintType: z.string().min(2, "Fingerprint type is required"),
   businessAddress: z.string().min(5, "Location address is required"),
   preferredDate: z.string().optional(),
   notes: z.string().optional()
@@ -66,7 +58,6 @@ const onSubmit = async (data: QuoteFormValues) => {
     formData.append("industry", data.industry);
     formData.append("numberOfPeople", data.employees || "");
     formData.append("serviceNeeded", data.serviceNeeded);
-    formData.append("fingerprintType", data.fingerprintType);
     formData.append("locationAddress", data.businessAddress);
     formData.append("preferredDate", data.preferredDate || "");
     formData.append("notes", data.notes || "");
@@ -97,13 +88,13 @@ const onSubmit = async (data: QuoteFormValues) => {
 
   if (submitted) {
     return (
-      <div className="rounded-3xl border border-blue-200 bg-blue-50/80 p-8 text-center shadow-sm space-y-4">
+      <div role="status" className="rounded-3xl border border-blue-200 bg-blue-50/80 p-8 text-center shadow-sm space-y-4">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-950 text-xl">
           ✓
         </div>
         <h2 className="text-2xl font-bold text-slate-950">Quote Request Received!</h2>
         <p className="text-sm leading-relaxed text-slate-600">
-          Thank you! We have received your details and sent an automated confirmation email to your inbox. Our team will review your request and get back to you shortly.
+          Thank you! We have received your details. Our team will review your request and get back to you shortly.
         </p>
         <button
           type="button"
@@ -117,45 +108,45 @@ const onSubmit = async (data: QuoteFormValues) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <form noValidate onSubmit={handleSubmit(onSubmit)} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
       <div className="space-y-2">
-        <p className="text-xs font-bold uppercase tracking-widest text-orange-600">Request a quote</p>
-        <h2 className="text-3xl font-semibold text-slate-950">Need on-site fingerprinting at your home or business?</h2>
+        <p className="text-xs font-bold uppercase tracking-widest text-orange-800">Group &amp; business quotes</p>
+        <h2 className="text-2xl font-semibold text-slate-950 sm:text-3xl">Need on-site fingerprinting at your home or business?</h2>
         <p className="text-sm leading-7 text-slate-600">
           Request a quote and we’ll coordinate a mobile appointment at your location, whether it’s an individual visit or a small group.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Company or Name</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("companyName")} placeholder="Business or individual" />
-          {errors.companyName && <span className="text-xs font-normal text-red-600">{errors.companyName.message}</span>}
+          <input className={inputClass} autoComplete="organization" aria-invalid={Boolean(errors.companyName)} aria-describedby={errors.companyName ? "quote-error-companyName" : undefined} {...register("companyName")} placeholder="Business or individual" />
+          {errors.companyName && <span id="quote-error-companyName" className="block text-sm font-normal text-red-700">{errors.companyName.message}</span>}
         </label>
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Contact Name</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("contactName")} />
-          {errors.contactName && <span className="text-xs font-normal text-red-600">{errors.contactName.message}</span>}
+          <input className={inputClass} autoComplete="name" aria-invalid={Boolean(errors.contactName)} aria-describedby={errors.contactName ? "quote-error-contactName" : undefined} {...register("contactName")} />
+          {errors.contactName && <span id="quote-error-contactName" className="block text-sm font-normal text-red-700">{errors.contactName.message}</span>}
         </label>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Email</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" type="email" {...register("email")} />
-          {errors.email && <span className="text-xs font-normal text-red-600">{errors.email.message}</span>}
+          <input className={inputClass} type="email" autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "quote-error-email" : undefined} {...register("email")} />
+          {errors.email && <span id="quote-error-email" className="block text-sm font-normal text-red-700">{errors.email.message}</span>}
         </label>
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Phone</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" type="tel" {...register("phone")} />
-          {errors.phone && <span className="text-xs font-normal text-red-600">{errors.phone.message}</span>}
+          <input className={inputClass} type="tel" autoComplete="tel" aria-invalid={Boolean(errors.phone)} aria-describedby={errors.phone ? "quote-error-phone" : undefined} {...register("phone")} />
+          {errors.phone && <span id="quote-error-phone" className="block text-sm font-normal text-red-700">{errors.phone.message}</span>}
         </label>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Industry</span>
-          <select className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("industry")}>
+          <select className={inputClass} aria-invalid={Boolean(errors.industry)} aria-describedby={errors.industry ? "quote-error-industry" : undefined} {...register("industry")}>
             <option value="">Select industry</option>
             {industries.map((industry) => (
               <option key={industry} value={industry}>
@@ -163,11 +154,11 @@ const onSubmit = async (data: QuoteFormValues) => {
               </option>
             ))}
           </select>
-          {errors.industry && <span className="text-xs font-normal text-red-600">{errors.industry.message}</span>}
+          {errors.industry && <span id="quote-error-industry" className="block text-sm font-normal text-red-700">{errors.industry.message}</span>}
         </label>
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Number of people</span>
-          <select className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("employees")}>
+          <select className={inputClass} {...register("employees")}>
             <option value="">Optional</option>
             <option value="1">1</option>
             <option value="2-5">2–5</option>
@@ -179,9 +170,9 @@ const onSubmit = async (data: QuoteFormValues) => {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Service Needed</span>
-          <select className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("serviceNeeded")}>
+          <select className={inputClass} aria-invalid={Boolean(errors.serviceNeeded)} aria-describedby={errors.serviceNeeded ? "quote-error-serviceNeeded" : undefined} {...register("serviceNeeded")}>
             <option value="">Select service</option>
             {services.map((service) => (
               <option key={service.id} value={service.title}>
@@ -189,45 +180,34 @@ const onSubmit = async (data: QuoteFormValues) => {
               </option>
             ))}
           </select>
-          {errors.serviceNeeded && <span className="text-xs font-normal text-red-600">{errors.serviceNeeded.message}</span>}
+          {errors.serviceNeeded && <span id="quote-error-serviceNeeded" className="block text-sm font-normal text-red-700">{errors.serviceNeeded.message}</span>}
         </label>
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
-          <span>Fingerprint Type</span>
-          <select className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("fingerprintType")}>
-            <option value="">Select fingerprint type</option>
-            {fingerprintTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
-          {errors.fingerprintType && <span className="text-xs font-normal text-red-600">{errors.fingerprintType.message}</span>}
-        </label>
-      </div>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
-          <span>Location Address</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("businessAddress")} placeholder="We come to you" />
-          {errors.businessAddress && <span className="text-xs font-normal text-red-600">{errors.businessAddress.message}</span>}
-        </label>
-        <label className="block space-y-2 text-xs font-semibold text-slate-700">
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
           <span>Preferred Date</span>
-          <input className="w-full rounded-2xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" type="date" {...register("preferredDate")} />
+          <input className={inputClass} type="date" {...register("preferredDate")} />
         </label>
       </div>
 
-      <label className="block space-y-2 text-xs font-semibold text-slate-700">
+      <div>
+        <label className="block space-y-2 text-sm font-semibold text-slate-700">
+          <span>Location Address</span>
+          <input className={inputClass} autoComplete="street-address" aria-invalid={Boolean(errors.businessAddress)} aria-describedby={errors.businessAddress ? "quote-error-businessAddress" : undefined} {...register("businessAddress")} placeholder="We come to you" />
+          {errors.businessAddress && <span id="quote-error-businessAddress" className="block text-sm font-normal text-red-700">{errors.businessAddress.message}</span>}
+        </label>
+
+      </div>
+
+      <label className="block space-y-2 text-sm font-semibold text-slate-700">
         <span>Notes</span>
-        <textarea className="min-h-[120px] w-full rounded-3xl border border-slate-200/90 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 focus:border-blue-950 focus:bg-white focus:outline-none" {...register("notes")} />
+        <textarea className={`min-h-[120px] ${inputClass}`} {...register("notes")} />
       </label>
 
-      {serverError && <p className="text-xs font-medium text-red-600">{serverError}</p>}
+      <div aria-live="assertive">{serverError && <p className="text-sm font-medium text-red-700">{serverError}</p>}</div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-2xl bg-orange-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-orange-500 disabled:cursor-not-allowed disabled:bg-slate-400"
+        className="w-full rounded-2xl bg-orange-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-orange-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-500"
       >
         {isSubmitting ? "Submitting..." : "Request a quote"}
       </button>

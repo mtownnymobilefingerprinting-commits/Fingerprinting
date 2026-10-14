@@ -160,7 +160,7 @@ export const serviceAreaPages = [
     label: "Goshen, NY",
     title: "Goshen Mobile Fingerprinting",
     description:
-      "Goshen employers and families can access mobile fingerprinting for FD-258 cards, Live Scan, and immigration appointments.",
+      "Goshen employers and families can access mobile ink fingerprinting for FD-258 cards and immigration appointments.",
     localBenefits: [
       "Business-ready service for local HR teams.",
       "Flexible appointments for individuals and groups.",
@@ -256,6 +256,11 @@ export const faqs = [
       "Yes. We accommodate group fingerprinting and on-site business appointments for staffing agencies, corporate teams, schools, and healthcare organizations."
   },
   {
+    question: "Will my agency accept ink fingerprint cards?",
+    answer:
+      "Many agencies accept ink-rolled FD-258 cards, but requirements vary. Please confirm with your receiving agency that ink cards are accepted before you book, since we do not offer Live Scan."
+  },
+  {
     question: "What should I bring?",
     answer:
       "Bring a valid photo ID, the required fingerprint form or agency instructions, and any appointment confirmation from your employer or licensing agency."
@@ -263,12 +268,12 @@ export const faqs = [
   {
     question: "How do I pay?",
     answer:
-      "Payment is accepted through secure checkout sessions for services that require prepayment or pay-later workflows. Each service page and appointment card includes a Pay Now button."
+      "Payment is made online by card before you choose an appointment time. Use any “Pay, then Schedule” button to review your total and pay securely, or call 888-219-4681."
   },
   {
     question: "How do I schedule?",
     answer:
-      "Schedule through our online booking forms or call 888-219-4681. Every service page includes a Book Appointment button that opens Calendly."
+      "Payment comes first: after your payment is confirmed, you’ll pick your date and time on our scheduling page. If you close the page after paying, use the link we email you (or Resume Scheduling) — you won’t be charged again. You can also call 888-219-4681."
   },
   {
     question: "Do you serve Orange County?",

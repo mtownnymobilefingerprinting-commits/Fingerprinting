@@ -1,10 +1,8 @@
-"use client";
-
 import { reviews } from "../config/reviews";
 
 function StarRating({ value }: { value: number }) {
   return (
-    <div className="flex items-center gap-1 text-brand-700">
+    <div className="flex items-center gap-1 text-brand-700" role="img" aria-label={`${value} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, index) => (
         <svg
           key={index}
@@ -24,12 +22,12 @@ function StarRating({ value }: { value: number }) {
 export function ReviewAccordion() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      {reviews.map((review) => (
+      {reviews.filter((review) => !review.needsOwnerReview).map((review) => (
         <div key={review.name} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-base font-semibold text-slate-950">{review.name}</p>
-              <p className="mt-1 text-sm text-slate-500">{review.date}</p>
+              <p className="mt-1 text-sm text-slate-600">{review.date}</p>
             </div>
             <StarRating value={review.rating} />
           </div>

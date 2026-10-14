@@ -5,10 +5,10 @@ import { siteConfig } from "../config/site";
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-950 text-slate-100">
-      <div className="mx-auto max-w-7xl space-y-6 px-6 py-12">
+      <div className="mx-auto max-w-7xl space-y-6 px-4 py-12 sm:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <Image src={siteConfig.logo} alt={`${siteConfig.title} logo`} width={48} height={48} className="rounded-2xl bg-brand-900 p-2" />
+            <Image src={siteConfig.logo} alt="" width={48} height={48} className="shrink-0 rounded-2xl bg-brand-900 p-2" />
             <div>
               <p className="text-xl font-semibold">{siteConfig.title}</p>
               <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
@@ -17,9 +17,9 @@ export function Footer() {
               </p>
             </div>
           </div>
-          <div className="space-y-2 text-sm text-slate-300">
-            <p>Call: <a href={`tel:${siteConfig.phone}`} className="text-brand-300 hover:text-brand-100">{siteConfig.phone}</a></p>
-            <p>Email: <a href={`mailto:${siteConfig.email}`} className="text-brand-300 hover:text-brand-100">{siteConfig.email}</a></p>
+          <div className="min-w-0 space-y-2 text-sm text-slate-300">
+            <p>Call: <a href={`tel:${siteConfig.phone}`} className="text-brand-300 hover:text-brand-100">{siteConfig.phoneDisplay}</a></p>
+            <p className="[overflow-wrap:anywhere]">Email: <a href={`mailto:${siteConfig.email}`} className="text-brand-300 hover:text-brand-100">{siteConfig.email}</a></p>
             <p>{siteConfig.hours}</p>
           </div>
         </div>
@@ -30,6 +30,7 @@ export function Footer() {
               <Link href="/services">Services</Link>
               <Link href="/appointments">Appointments</Link>
               <Link href="/contact">Contact</Link>
+              <Link href="/resume">Already paid? Resume scheduling</Link>
             </div>
           </div>
           <div>
@@ -72,7 +73,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <p className="border-t border-slate-800 pt-6 text-sm text-slate-500">
+        <p className="border-t border-slate-800 pt-6 text-sm text-slate-400">
           © {new Date().getFullYear()} Middletown NY Mobile Fingerprinting. All rights reserved.
         </p>
       </div>

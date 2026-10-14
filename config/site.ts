@@ -4,6 +4,7 @@ export const siteConfig = {
     "Professional mobile fingerprinting, FD-258 cards, employment and corporate fingerprinting across Middletown, Orange County, Sullivan County, and the Hudson Valley.",
   url: "https://www.middletownnymobilefingerprinting.com",
   phone: "+18882194681",
+  phoneDisplay: "888-219-4681",
   email: "mtownnymobilefingerprinting@gmail.com",
   address: "Middletown, NY",
   hours: "Mon-Sun 7:00 AM - 8:00 PM",

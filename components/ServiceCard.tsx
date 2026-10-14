@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ServicePayButton } from "./ServicePayButton";
-import { BookAppointmentButton } from "./BookAppointmentButton";
+import Link from "next/link";
+import { PayThenScheduleLink } from "./PayThenScheduleLink";
 import type { ServiceConfig } from "../config/services";
 
 export function ServiceCard({ service }: { service: ServiceConfig }) {
@@ -14,8 +14,6 @@ export function ServiceCard({ service }: { service: ServiceConfig }) {
       <div className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100">
-            <span className="sr-only">Service icon</span>
-
             <div
               className="h-3.5 w-3.5 rounded-full bg-brand-700"
               aria-hidden="true"
@@ -27,7 +25,7 @@ export function ServiceCard({ service }: { service: ServiceConfig }) {
               {service.title}
             </h3>
 
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-600">
               {service.idealCustomer}
             </p>
           </div>
@@ -43,16 +41,14 @@ export function ServiceCard({ service }: { service: ServiceConfig }) {
       </div>
 
       <div className="mt-6 flex flex-col gap-3">
-        <BookAppointmentButton serviceId={service.id} />
+        <PayThenScheduleLink serviceSlug={service.slug} />
 
-        <ServicePayButton service={service} />
-
-        <a
-          href={`/services/${service.id}`}
-          className="text-sm font-medium text-brand-600 hover:text-brand-800"
+        <Link
+          href={`/services/${service.slug}`}
+          className="text-sm font-medium text-brand-700 underline-offset-2 hover:underline"
         >
-          Learn More
-        </a>
+          Learn more<span className="sr-only"> about {service.title}</span>
+        </Link>
       </div>
     </motion.article>
   );

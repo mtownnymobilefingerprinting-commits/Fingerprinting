@@ -16,29 +16,30 @@ import { Footer } from "./Footer";
 import { ReviewAccordion } from "./ReviewAccordion";
 import { ServiceDropdown } from "./ServiceDropdown";
 import { siteConfig } from "../config/site";
+import { policies } from "../config/policies";
 
 // Step-by-Step process items
 const steps = [
   {
     number: "01",
-    title: "Schedule Your Appointment",
+    title: "Choose & Pay",
     description:
-      "Book online or give us a call. Choose a time and location that fits your busy schedule.",
-    icon: CalendarCheck,
+      "Pick your service, enter your address, review your exact total, and pay securely online.",
+    icon: CheckCircle2,
   },
   {
     number: "02",
-    title: "We Come to You",
+    title: "Pick Your Time",
     description:
-      "Our certified mobile technician arrives at your home, office, or designated location with all required equipment.",
-    icon: Car,
+      "Right after your payment is confirmed, choose the appointment date and time that works for you.",
+    icon: CalendarCheck,
   },
   {
     number: "03",
-    title: "Fast & Compliant Inking",
+    title: "We Come to You",
     description:
-      "We print your FD-258 or specialized cards accurately on-site, fully prepared for immediate official submission.",
-    icon: CheckCircle2,
+      "Our mobile technician arrives at your home, office, or chosen location and prints your FD-258 or other ink cards on-site.",
+    icon: Car,
   },
 ];
 
@@ -53,7 +54,7 @@ const specializedServices = [
       "Fingerprinting support for immigration petitions, naturalization, and visa-related background checks.",
     price: "$125 per person within 20 miles of Middletown, NY",
     icon: FileCheck2,
-    href: "/services/immigration",
+    slug: "immigration",
   },
   {
     id: "adoption-fingerprinting",
@@ -64,7 +65,7 @@ const specializedServices = [
       "Confidential fingerprinting for adoption home studies, guardianship filings, and family court requirements.",
     price: "$125 per person within 20 miles of Middletown, NY",
     icon: HeartHandshake,
-    href: "/services/adoption",
+    slug: "adoption",
   },
   {
     id: "personal-record-review",
@@ -75,7 +76,7 @@ const specializedServices = [
       "Personal record review and fingerprinting consultation for applicants and record clearance requests.",
     price: "$125 per person within 20 miles of Middletown, NY",
     icon: UserCheck,
-    href: "/services/personal-record-review",
+    slug: "personal-record-review",
   },
 ];
 
@@ -84,7 +85,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
 
-      <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <main id="main" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {/* HERO SECTION */}
         <section className="grid gap-10 lg:grid-cols-12 lg:items-center">
           {/* LEFT SIDE */}
@@ -102,54 +103,47 @@ export default function HomePage() {
               </h1>
 
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Professional mobile ink fingerprinting, FD-258 fingerprint
-                cards, employment fingerprinting, and group fingerprinting
-                services for businesses and professionals throughout
-                Middletown, Orange County, Sullivan County, and the Hudson
-                Valley.
+                Ink and FD-258 fingerprinting at your home, office, or business
+                across Middletown, Orange County, Sullivan County, and the
+                Hudson Valley.
               </p>
             </div>
 
-            {/* BUTTONS */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/appointments"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-950 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-950 focus:ring-offset-2"
-              >
-                Book an Appointment
-              </Link>
+            {/* PRICE + BUTTONS */}
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-orange-200 bg-orange-50 p-4 text-sm text-slate-900">
+                <p className="text-base font-semibold">{policies.pricingSummary}</p>
+                <p className="mt-1">{policies.payFirstNotice}</p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  href="/pay"
+                  className="inline-flex items-center justify-center rounded-xl bg-blue-950 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-950 focus-visible:ring-offset-2"
+                >
+                  Pay, then Schedule
+                </Link>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 hover:text-slate-900"
-              >
-                Request a Quote
-              </Link>
-
-              <Link
-                href="/pay"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-slate-600 underline hover:text-blue-950"
-              >
-                Pay Now →
-              </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 hover:text-slate-900"
+                >
+                  Group or business quote
+                </Link>
+              </div>
             </div>
 
             {/* PHONE */}
             <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-wider text-blue-800">
-                Call for fastest scheduling
+                Questions? Call us
               </p>
 
               <a
                 href={`tel:${siteConfig.phone}`}
                 className="mt-1 inline-block text-2xl font-bold tracking-tight text-blue-950 hover:text-blue-800"
               >
-                {siteConfig.phone}
+                {siteConfig.phoneDisplay}
               </a>
-
-              <p className="mt-1 text-xs text-slate-500">
-                Secure online checkout is available for prepaid appointments.
-              </p>
             </div>
           </div>
 
@@ -175,7 +169,7 @@ export default function HomePage() {
                   />
                 </div>
 
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-300">
                   Mobile Fingerprinting Services
                 </p>
 
@@ -314,7 +308,7 @@ export default function HomePage() {
 
                     {/* Pricing Badge */}
                     <div className="rounded-2xl bg-slate-50 p-3.5 border border-slate-100">
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-600">
                         Pricing
                       </p>
                       <p className="mt-0.5 text-xs font-semibold text-slate-800">
@@ -325,26 +319,18 @@ export default function HomePage() {
 
                   {/* Action Buttons */}
                   <div className="mt-6 space-y-3 pt-4 border-t border-slate-100">
-                    <div className="grid grid-cols-2 gap-2">
-                      <Link
-                        href="/appointments"
-                        className="inline-flex items-center justify-center rounded-xl bg-blue-950 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-900 text-center"
-                      >
-                        Book Appointment
-                      </Link>
-                      <Link
-                        href="/pay"
-                        className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-800 transition hover:bg-slate-50 text-center"
-                      >
-                        Pay Now
-                      </Link>
-                    </div>
+                    <Link
+                      href={`/pay?service=${service.slug}`}
+                      className="inline-flex w-full items-center justify-center rounded-xl bg-blue-950 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-900"
+                    >
+                      Pay, then Schedule
+                    </Link>
 
                     <Link
-                      href={service.href}
+                      href={`/services/${service.slug}`}
                       className="inline-flex items-center justify-center w-full gap-1 text-xs font-semibold text-blue-900 hover:text-blue-700 pt-1"
                     >
-                      Learn More &rarr;
+                      Learn more<span className="sr-only"> about {service.title}</span> &rarr;
                     </Link>
                   </div>
                 </div>
@@ -364,8 +350,8 @@ export default function HomePage() {
                 Trusted by businesses and professionals.
               </h2>
               <p className="mt-1 text-slate-600">
-                Real Google reviews from customers who chose reliable mobile
-                fingerprinting across Middletown and the Hudson Valley.
+                Google reviews from customers across Middletown and the Hudson
+                Valley.
               </p>
             </div>
             <ReviewAccordion />

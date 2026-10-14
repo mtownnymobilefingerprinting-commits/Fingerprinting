@@ -2,15 +2,23 @@ import Link from "next/link";
 import { Navigation } from "../../components/Navigation";
 import { Footer } from "../../components/Footer";
 import { serviceAreaPages } from "../../config/content";
+import { pageMetadata } from "../../lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Service Areas",
+  description:
+    "Mobile fingerprinting across Middletown, Orange County, Sullivan County, and nearby Hudson Valley communities.",
+  path: "/service-areas",
+});
 
 export default function ServiceAreasPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
-      <main className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+      <main id="main" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-brand-700">Service Areas</p>
-          <h1 className="text-4xl font-semibold text-slate-950">Professional mobile fingerprinting across the Hudson Valley.</h1>
+          <h1 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Professional mobile fingerprinting across the Hudson Valley.</h1>
           <p className="max-w-3xl text-lg leading-8 text-slate-600">
             We serve Middletown, Orange County, Sullivan County, and nearby communities with secure, on-site fingerprinting for businesses and individuals.
           </p>

@@ -1,8 +1,7 @@
-"use client";
-
-import { appointmentCategories } from "../config/content";
-import { BookAppointmentButton } from "./BookAppointmentButton";
 import Link from "next/link";
+import { appointmentCategories } from "../config/content";
+import { findService } from "../config/services";
+import { PayThenScheduleLink } from "./PayThenScheduleLink";
 
 export function AppointmentGrid() {
   return (
@@ -21,6 +20,7 @@ export function AppointmentGrid() {
               const itemWithDesc = item as typeof item & {
                 description?: string;
               };
+              const slug = findService(item.id)?.slug ?? item.id;
 
               return (
                 <div
@@ -42,7 +42,7 @@ export function AppointmentGrid() {
                           {item.title}
                         </h3>
 
-                        <p className="text-xs leading-snug text-slate-500">
+                        <p className="text-sm leading-snug text-slate-600">
                           {item.highlight}
                         </p>
                       </div>
@@ -66,26 +66,17 @@ export function AppointmentGrid() {
 
                   {/* Actions */}
                   <div className="mt-6 flex flex-col gap-3">
-                    {/* Book Appointment */}
-                    <BookAppointmentButton
-                      serviceId={item.id}
-                      className="inline-flex w-full items-center justify-center rounded-2xl bg-blue-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-900 active:bg-blue-950"
+                    <PayThenScheduleLink
+                      serviceSlug={slug}
+                      className="inline-flex w-full items-center justify-center rounded-2xl bg-blue-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-900"
                     />
-
-                    {/* Pay Now */}
-                    <Link
-                      href={`/pay?service=${item.id}`}
-                      className="inline-flex w-full items-center justify-center rounded-2xl border border-slate-200/90 bg-white px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50"
-                    >
-                      Pay Now
-                    </Link>
 
                     {/* Learn More */}
                     <Link
-                      href={`/services/${item.id}`}
-                      className="mt-1 text-sm font-semibold text-orange-600 hover:text-orange-700"
+                      href={`/services/${slug}`}
+                      className="mt-1 text-sm font-semibold text-orange-800 underline-offset-2 hover:underline"
                     >
-                      Learn More
+                      Learn more<span className="sr-only"> about {item.title}</span>
                     </Link>
                   </div>
                 </div>

@@ -1,18 +1,23 @@
 export type ServiceConfig = {
+  /** Stable identifier stored on orders and sent to Stripe metadata. */
   id: string;
+  /** Public URL segment: /services/[slug]. */
+  slug: string;
   title: string;
   description: string;
   idealCustomer: string;
   price: string;
   seoTitle: string;
   seoDescription: string;
-  appointmentId: keyof typeof import("./appointments").calendlyLinks;
+  /** Legacy identifier used by older /pay?service=... links and appointment cards. */
+  appointmentId: string;
   paymentWorkflow: "payFirst";
 };
 
 export const services: ServiceConfig[] = [
   {
     id: "mobile-ink",
+    slug: "mobile-ink",
     title: "Mobile Ink Fingerprinting",
     description:
       "Professional mobile ink fingerprinting services delivered to your home, office, or business.",
@@ -28,6 +33,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "fd258",
+    slug: "fd258",
     title: "FD-258 Fingerprint Cards",
     description:
       "Full-service FD-258 fingerprint card processing for employers, licensing, and government record checks.",
@@ -43,6 +49,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "fbiCard",
+    slug: "fbi-card",
     title: "FBI Fingerprint Cards",
     description:
       "Reliable FBI fingerprint card service for background checks, licensing, and federal requirements.",
@@ -58,6 +65,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "immigration",
+    slug: "immigration",
     title: "Immigration Fingerprinting",
     description:
       "Fingerprinting support for immigration petitions, naturalization, and visa-related background checks.",
@@ -73,6 +81,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "adoption",
+    slug: "adoption",
     title: "Adoption Fingerprinting",
     description:
       "Confidential fingerprinting for adoption home studies, guardianship filings, and family court requirements.",
@@ -88,6 +97,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "personalRecordReview",
+    slug: "personal-record-review",
     title: "Personal Record Review",
     description:
       "Personal record review and fingerprinting consultation for applicants and record clearance requests.",
@@ -103,6 +113,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "employment",
+    slug: "employment",
     title: "Employment Fingerprinting",
     description:
       "Complete employment fingerprinting for hiring, onboarding, and workplace compliance.",
@@ -118,6 +129,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "nursingLicense",
+    slug: "nursing-license",
     title: "Nursing License Fingerprinting",
     description:
       "Mobile fingerprinting for nursing license applications, renewals, and healthcare workforce clearance.",
@@ -133,6 +145,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "teacherCertification",
+    slug: "teacher-certification",
     title: "Teacher Certification Fingerprinting",
     description:
       "Fingerprinting services designed for teacher certification, school staff background checks, and education licensing.",
@@ -148,6 +161,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "securityGuard",
+    slug: "security-guard",
     title: "Security Guard Fingerprinting",
     description:
       "Reliable fingerprinting for security guard licensing, renewals, and Department of State applications.",
@@ -163,6 +177,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "realEstateLicense",
+    slug: "real-estate-license",
     title: "Real Estate License Fingerprinting",
     description:
       "Mobile fingerprinting support for real estate license applications, broker registration, and renewals.",
@@ -178,6 +193,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "finra",
+    slug: "finra",
     title: "FINRA Fingerprinting",
     description:
       "Fingerprinting services for FINRA registration, securities licensing, and financial services employer onboarding.",
@@ -193,6 +209,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "corporate",
+    slug: "corporate",
     title: "Corporate Fingerprinting",
     description:
       "On-site corporate fingerprinting for teams, HR departments, and staffing partners.",
@@ -208,6 +225,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "onSiteBusiness",
+    slug: "on-site-business",
     title: "On-Site Business Fingerprinting",
     description:
       "Mobile fingerprinting at your office for hiring, compliance, and employee onboarding.",
@@ -223,6 +241,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "group",
+    slug: "group",
     title: "Group Fingerprinting",
     description:
       "Group fingerprinting for teams, staffing events, and multi-employee appointments.",
@@ -238,6 +257,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "staffingAgency",
+    slug: "staffing-agency",
     title: "Staffing Agency Fingerprinting",
     description:
       "Staffing agency fingerprinting for temporary hires, contract workers, and client placements.",
@@ -253,6 +273,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "healthcare",
+    slug: "healthcare",
     title: "Healthcare Facility Fingerprinting",
     description:
       "Mobile fingerprinting for healthcare workers, credentialing, and facility compliance.",
@@ -268,6 +289,7 @@ export const services: ServiceConfig[] = [
 
   {
     id: "governmentContractor",
+    slug: "government-contractor",
     title: "Government Contractor Fingerprinting",
     description:
       "Mobile fingerprinting for government contractors and cleared personnel requiring secure compliance.",
@@ -280,4 +302,23 @@ export const services: ServiceConfig[] = [
     appointmentId: "governmentContractor",
     paymentWorkflow: "payFirst",
   },
-]; 
+];
+
+/** Old public paths that should permanently redirect to the canonical slug. */
+export function legacyServicePaths(): { from: string; to: string }[] {
+  const out: { from: string; to: string }[] = [];
+  for (const service of services) {
+    for (const alias of new Set([service.id, service.appointmentId])) {
+      if (alias !== service.slug) out.push({ from: alias, to: service.slug });
+    }
+  }
+  return out;
+}
+
+/** Resolves a slug, catalog id, or legacy appointment id (e.g. "mobileInk") to a service. */
+export function findService(key: string | null | undefined): ServiceConfig | undefined {
+  if (!key) return undefined;
+  return services.find(
+    (service) => service.slug === key || service.id === key || service.appointmentId === key
+  );
+}
