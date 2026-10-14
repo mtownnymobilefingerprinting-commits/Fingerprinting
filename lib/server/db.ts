@@ -58,7 +58,9 @@ async function rest<T>(path: string, init: RequestInit = {}): Promise<T> {
     cache: "no-store",
     headers: {
       apikey: key,
-      Authorization: `Bearer ${key}`,
+      // Legacy service_role keys are JWTs and go in Authorization too; newer
+      // sb_secret_ keys are sent only as apikey (the gateway handles the rest).
+      ...(key.startsWith("eyJ") ? { Authorization: `Bearer ${key}` } : {}),
       "Content-Type": "application/json",
       Prefer: "return=representation",
       ...init.headers,
