@@ -32,6 +32,9 @@ export type Order = {
   paid_at: string | null;
   scheduled_at: string | null;
   resume_email_sent_at: string | null;
+  confirmation_sent_at: string | null;
+  reminder_count: number;
+  last_reminder_at: string | null;
   created_at: string;
 };
 
@@ -48,6 +51,9 @@ export type NewOrder = Omit<
   | "paid_at"
   | "scheduled_at"
   | "resume_email_sent_at"
+  | "confirmation_sent_at"
+  | "reminder_count"
+  | "last_reminder_at"
   | "created_at"
 >;
 

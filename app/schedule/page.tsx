@@ -160,7 +160,8 @@ export default async function SchedulePage({ searchParams }: { searchParams: Pro
         </p>
         <p className="text-sm text-slate-700">
           Booking is required to complete your order. If you need to come back later, use the “choose your time” link in
-          your payment receipt email — you won’t be charged again.
+          your payment receipt or in the reminder we’ll email you — you won’t be charged again. Once you’ve booked, we’ll
+          email your confirmation.
         </p>
       </div>
       {bookingUrl ? (

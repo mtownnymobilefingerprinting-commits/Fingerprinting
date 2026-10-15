@@ -5,10 +5,11 @@ import {
   calendlyApiEnabled,
   createSingleUseBookingUrl,
   findBookingsForOrder,
+  getEvent,
   type VerifiedBooking,
 } from "./calendly";
 import { getOrder, updateOrders, type Order, type PaymentStatus } from "./db";
-import { sendScheduleLinkEmail } from "./email";
+import { sendBookingConfirmationEmail } from "./email";
 import { serverEnv } from "./env";
 import { stripe } from "./stripe";
 
@@ -82,10 +83,6 @@ export async function syncOrderWithPaymentIntent(intent: Stripe.PaymentIntent, o
 
   // Never move an order backwards out of paid/refunded from a PaymentIntent event.
   if (order.payment_status === "paid" || order.payment_status === "refunded" || order.payment_status === next) {
-    // A previous attempt may have failed to send the "choose your time" email; retry it.
-    if (order.payment_status === "paid" && order.appointment_status === "unscheduled" && !order.resume_email_sent_at) {
-      await sendScheduleLinkOnce(order, origin);
-    }
     return order;
   }
 
@@ -95,19 +92,8 @@ export async function syncOrderWithPaymentIntent(intent: Stripe.PaymentIntent, o
   );
   if (!updated) return getOrder({ id: `eq.${order.id}` });
 
-  if (next === "paid") await sendScheduleLinkOnce(updated, origin);
+  // No email here: customers get a confirmation once they've booked, or a reminder if they haven't.
   return updated;
-}
-
-/** Emails the schedule link at most once per order, even if webhook and return page race. */
-async function sendScheduleLinkOnce(order: Order, origin: string) {
-  const [claimed] = await updateOrders(
-    { id: `eq.${order.id}`, resume_email_sent_at: "is.null" },
-    { resume_email_sent_at: new Date().toISOString() }
-  );
-  if (!claimed) return;
-  const sent = await sendScheduleLinkEmail(claimed, scheduleUrl(origin, claimed));
-  if (!sent) await updateOrders({ id: `eq.${order.id}` }, { resume_email_sent_at: null });
 }
 
 /** Ask Stripe directly so a delayed webhook never strands a paying customer. */
@@ -139,6 +125,7 @@ export async function recordBooking(order: Order, booking: VerifiedBooking) {
         scheduled_at: new Date().toISOString(),
       }
     );
+    if (updated) await sendConfirmationOnce(updated);
     return updated ?? null;
   } catch (error) {
     // Unique index on calendly_event_uri: one Calendly booking can't satisfy two orders.
@@ -196,4 +183,27 @@ export async function moveBooking(order: Order, fromEventUri: string, booking: V
     return [] as Order[];
   });
   return updated ?? null;
+}
+
+/**
+ * Emails the "booked and paid" confirmation at most once per order (the browser,
+ * the Calendly lookup, and the sweep can all record a booking). Never throws.
+ */
+async function sendConfirmationOnce(order: Order) {
+  try {
+    const [claimed] = await updateOrders(
+      { id: `eq.${order.id}`, appointment_status: "eq.scheduled", confirmation_sent_at: "is.null" },
+      { confirmation_sent_at: new Date().toISOString() }
+    );
+    if (!claimed) return;
+    let startTime: string | null = null;
+    if (calendlyApiEnabled() && claimed.calendly_event_uri) {
+      startTime = (await getEvent(claimed.calendly_event_uri).catch(() => null))?.start_time ?? null;
+    }
+    if (!(await sendBookingConfirmationEmail(claimed, startTime))) {
+      await updateOrders({ id: `eq.${order.id}` }, { confirmation_sent_at: null });
+    }
+  } catch (error) {
+    console.error(`[orders] Confirmation email failed for ${order.reference}`, error);
+  }
 }
