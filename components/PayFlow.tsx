@@ -183,6 +183,9 @@ export function PayFlow() {
                 We couldn’t find the service in your link, so please choose one below.
               </p>
             )}
+            <p className="text-sm text-slate-700">
+              Fields marked with <span className="text-red-700">*</span> are required.
+            </p>
 
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
@@ -223,7 +226,7 @@ export function PayFlow() {
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="field-name" className="block text-sm font-semibold text-blue-950">
-                  Full name
+                  Full name <span className="text-red-700" aria-hidden="true">*</span>
                 </label>
                 <input
                   id="field-name"
@@ -240,7 +243,7 @@ export function PayFlow() {
               </div>
               <div>
                 <label htmlFor="field-phone" className="block text-sm font-semibold text-blue-950">
-                  Phone number
+                  Phone number <span className="text-red-700" aria-hidden="true">*</span>
                 </label>
                 <input
                   id="field-phone"
@@ -260,7 +263,7 @@ export function PayFlow() {
 
             <div>
               <label htmlFor="field-email" className="block text-sm font-semibold text-blue-950">
-                Email
+                Email <span className="text-red-700" aria-hidden="true">*</span>
               </label>
               <input
                 id="field-email"
@@ -281,7 +284,7 @@ export function PayFlow() {
 
             <div>
               <label htmlFor="field-address" className="block text-sm font-semibold text-blue-950">
-                Appointment address
+                Appointment address <span className="text-red-700" aria-hidden="true">*</span>
               </label>
               <input
                 id="field-address"
